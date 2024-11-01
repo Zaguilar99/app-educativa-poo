@@ -3,18 +3,23 @@ const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 
 exports.register = async (req, res) => {
-  const { username, email, password, role } = req.body;
+  const { nombres, apellidos, email, password, repeatPassword } = req.body;
+
+  if (password !== repeatPassword) {
+    return res.status(400).json({ error: "Las contraseñas no coinciden" });
+  }
+
   try {
     const existingUser = await User.findOne({ email });
-    if (existingUser)
-      return res
-        .status(400)
-        .json({ error: "El correo electrónico ya está registrado" });
+    if (existingUser) {
+      return res.status(400).json({ error: "El correo electrónico ya está registrado" });
+    }
 
-    const newUser = new User({ username, email, password, role });
+    const newUser = new User({ nombres, apellidos, email, password });
     await newUser.save();
     res.status(201).json({ message: "Usuario registrado exitosamente" });
   } catch (error) {
+    console.error("Error al registrar el usuario:", error); 
     res.status(500).json({ error: "Error en el servidor" });
   }
 };
@@ -38,7 +43,8 @@ exports.login = async (req, res) => {
       token,
       user: {
         id: user._id,
-        username: user.username,
+        nombres: user.nombres,
+        apellidos: user.apellidos,
         email: user.email,
         role: user.role,
       },

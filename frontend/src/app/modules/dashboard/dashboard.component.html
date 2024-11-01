@@ -1,0 +1,89 @@
+<div class="dashboard-container">
+  <div class="left-section">
+    <div class="welcome-card">
+      <h4>
+        Bienvenido(a) a nuestra Aplicación Web Educativa Adaptativa sobre
+        Programación Orientada a Objetos en Java!
+      </h4>
+      <p>Aquí aprenderás:</p>
+      <ul>
+        <li>
+          <i class="pi pi-book"></i>
+          <span
+            >Fundamentos de POO: Comprenderás conceptos clave como clases,
+            objetos, herencia, polimorfismo, abstracción y encapsulación.</span
+          >
+        </li>
+        <li>
+          <i class="pi pi-code"></i>
+          <span
+            >Aplicación práctica en Java: Aprenderás a implementar estos
+            conceptos en Java, creando programas eficientes y escalables.</span
+          >
+        </li>
+        <li>
+          <i class="pi pi-sitemap"></i>
+          <span
+            >Patrones de diseño: Explorarás patrones comunes que te ayudarán a
+            resolver problemas de programación de manera efectiva.</span
+          >
+        </li>
+        <li>
+          <i class="pi pi-check-circle"></i>
+          <span
+            >Buenas prácticas: Descubrirás cómo escribir código limpio y
+            mantenible, siguiendo estándares profesionales.</span
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="right-section">
+    <div class="card">
+      <h4 class="text-center">Seleccionar nivel</h4>
+      <hr />
+      <div class="level-option">
+        <i class="pi pi-star"></i>
+        <span>Fácil</span>
+        <p-checkbox binary="true"></p-checkbox>
+      </div>
+      <div class="level-option">
+        <i class="pi pi-star"></i>
+        <span>Intermedio</span>
+        <p-checkbox binary="true"></p-checkbox>
+      </div>
+      <div class="level-option">
+        <i class="pi pi-star"></i>
+        <span>Avanzado</span>
+        <p-checkbox binary="true"></p-checkbox>
+      </div>
+      <hr />
+      <div class="logout-container">
+        <button
+          pButton
+          type="button"
+          label="Continuar"
+          (click)="chat()"
+          class="p-button-secondary"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="accordion-container">
+  <h4>Historial de Ejercicios</h4>
+  <p-accordion>
+    <p-accordionTab header="Ejercicio 1">
+      <p>Detalles del Ejercicio 1...</p>
+    </p-accordionTab>
+    <p-accordionTab header="Ejercicio 2">
+      <p>Detalles del Ejercicio 2...</p>
+    </p-accordionTab>
+    <p-accordionTab header="Ejercicio 3">
+      <p>Detalles del Ejercicio 3...</p>
+    </p-accordionTab>
+    <p-accordionTab header="Ejercicio 4">
+      <p>Detalles del Ejercicio 4...</p>
+    </p-accordionTab>
+  </p-accordion>
+</div>

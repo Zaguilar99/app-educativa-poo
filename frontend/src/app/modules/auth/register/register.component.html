@@ -1,0 +1,146 @@
+<div class="login-design h-100">
+  <p-toast></p-toast>
+  <div
+    class="waves"
+    style="background-image: url('./assets/layout/images/login.png')"
+  ></div>
+  <div class="login-data">
+    <div
+      class="img-mobil"
+      style="
+        visibility: hidden;
+        width: 100%;
+        height: 200px;
+        background-image: url('./assets/layout/images/login.png');
+      "
+    ></div>
+    <form (ngSubmit)="register()">
+      <h1>¡Crea una cuenta!</h1>
+      <div class="input-group" style="position: relative">
+        <h3>Nombres</h3>
+        <input
+          pInputText
+          type="text"
+          name="nombres"
+          placeholder="Ingresa tus nombres"
+          required
+          [(ngModel)]="registerData.nombres"
+        />
+      </div>
+      <div class="input-group" style="position: relative">
+        <h3>Apellidos</h3>
+        <input
+          pInputText
+          type="text"
+          name="apellidos"
+          placeholder="Ingresa tus apellidos"
+          required
+          [(ngModel)]="registerData.apellidos"
+        />
+      </div>
+      <div class="input-group" style="position: relative">
+        <h3>Correo</h3>
+        <input
+          pInputText
+          type="email"
+          name="email"
+          placeholder="Ingresa tu correo electrónico"
+          required
+          [(ngModel)]="registerData.email"
+        />
+      </div>
+      <div class="input-group" style="position: relative">
+        <h3>Contraseña</h3>
+        <input
+          pInputText
+          #refPassword
+          [type]="viewPassword ? 'text' : 'password'"
+          name="password"
+          placeholder="Ingresa tu contraseña"
+          required
+          [(ngModel)]="registerData.password"
+        />
+        <img
+          *ngIf="viewPassword"
+          src="./assets/layout/icons/eye.svg"
+          (click)="viewPassword = !viewPassword"
+          alt="Show Password"
+          style="
+            position: absolute;
+            right: 12px;
+            bottom: 14px;
+            cursor: pointer;
+            z-index: 3;
+            width: 20px;
+            height: 20px;
+          "
+        />
+        <img
+          *ngIf="!viewPassword"
+          src="./assets/layout/icons/eye-slash.svg"
+          (click)="viewPassword = !viewPassword"
+          alt="Hide Password"
+          style="
+            position: absolute;
+            right: 12px;
+            bottom: 14px;
+            cursor: pointer;
+            z-index: 3;
+            width: 20px;
+            height: 20px;
+          "
+        />
+      </div>
+      <div class="input-group" style="position: relative">
+        <h3>Repetir Contraseña</h3>
+        <input
+          pInputText
+          #refPassword
+          [type]="viewPassword ? 'text' : 'password'"
+          name="repeatPassword"
+          placeholder="Repetir tu contraseña"
+          required
+          [(ngModel)]="registerData.repeatPassword"
+        />
+        <img
+          *ngIf="viewPassword"
+          src="./assets/layout/icons/eye.svg"
+          (click)="viewPassword = !viewPassword"
+          alt="Show Password"
+          style="
+            position: absolute;
+            right: 12px;
+            bottom: 14px;
+            cursor: pointer;
+            z-index: 3;
+            width: 20px;
+            height: 20px;
+          "
+        />
+        <img
+          *ngIf="!viewPassword"
+          src="./assets/layout/icons/eye-slash.svg"
+          (click)="viewPassword = !viewPassword"
+          alt="Hide Password"
+          style="
+            position: absolute;
+            right: 12px;
+            bottom: 14px;
+            cursor: pointer;
+            z-index: 3;
+            width: 20px;
+            height: 20px;
+          "
+        />
+      </div>
+      <div class="ingresar">
+        <button type="submit" class="btn-login mb-4">Registrar</button>
+      </div>
+      <div class="register" style="text-align: right">
+        <p style="font-size: 14px">
+          <a routerLink="/login"> Regresar</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

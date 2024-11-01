@@ -37,9 +37,13 @@ const options = {
               type: "string",
               example: "60d0fe4f5311236168a109ca",
             },
-            username: {
+            nombres: {
               type: "string",
-              example: "juanperez",
+              example: "Juan",
+            },
+            apellidos: {
+              type: "string",
+              example: "Perez",
             },
             email: {
               type: "string",

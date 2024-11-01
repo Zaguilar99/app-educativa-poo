@@ -1,0 +1,109 @@
+.dashboard-container {
+  display: flex;
+  height: 100%;
+  margin-bottom: 20px;
+}
+
+.right-section {
+  flex: 0 0 40%;
+  padding: 20px;
+}
+
+.card {
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.level-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.level-option i {
+  font-size: 1.5em;
+  color: #f39c12;
+}
+
+.level-option span {
+  flex-grow: 1;
+  margin-left: 10px;
+  font-size: 1.2em;
+}
+
+.level-option p-checkbox {
+  margin-left: auto;
+}
+
+.logout-container {
+  text-align: center;
+}
+
+.accordion-container {
+  padding: 20px;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+.left-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+}
+
+.welcome-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+
+  width: 100%;
+}
+
+.welcome-card h4 {
+  margin-top: 0;
+  color: #007ad9;
+}
+
+.welcome-card p {
+  font-size: 16px;
+  color: #333333;
+}
+
+.welcome-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.welcome-card li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.welcome-card li i {
+  font-size: 20px;
+  color: #007ad9;
+  margin-right: 10px;
+}
+
+.welcome-card li span {
+  font-size: 16px;
+  color: #333333;
+}

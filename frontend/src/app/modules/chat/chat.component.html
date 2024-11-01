@@ -1,0 +1,62 @@
+<div class="chat-container">
+  <header class="chat-header">
+    <h2>Ejercicio: Sistema de Gestión de Vehículos</h2>
+    <p>
+      Crea un sistema de gestión de vehículos utilizando los principios de
+      Programación Orientada a Objetos (POO) en Java. El objetivo es implementar
+      una jerarquía de clases que represente diferentes tipos de vehículos y
+      demostrar el uso de herencia, encapsulación y polimorfismo.
+    </p>
+  </header>
+  <main class="chat-content">
+    <section class="chat-messages">
+      <article class="message user-message">
+        <p>
+          Objetivo: Definir una clase base que contenga atributos y métodos
+          comunes a todos los vehículos.
+        </p>
+      </article>
+      <article class="message bot-message">
+        <div class="code-block">
+          <pre><code>{{ 'public class Vehiculo {' }}
+  {{ '  protected String marca;' }}
+  {{ '  protected String modelo;' }}
+  {{ '  protected int anio;' }}
+  {{ '' }}
+  {{ '  public Vehiculo(String marca, String modelo, int anio) {' }}
+  {{ '    this.marca = marca;' }}
+  {{ '    this.modelo = modelo;' }}
+  {{ '    this.anio = anio;' }}
+  {{ '  }' }}
+  {{ '' }}
+  {{ '  public void mostrarInformacion() {' }}
+  {{ '    System.out.println("Marca: " + marca);' }}
+  {{ '    System.out.println("Modelo: " + modelo);' }}
+  {{ '    System.out.println("Año: " + anio);' }}
+  {{ '  }' }}
+  {{ '}' }}</code></pre>
+        </div>
+        <div class="explanation">
+          <p>Explicación:</p>
+          <ul>
+            <li>
+              <strong>Atributos protegidos (protected):</strong> Permite que las
+              clases hijas accedan directamente a estos atributos.
+            </li>
+            <li>
+              <strong>Constructor:</strong> Inicializa los atributos comunes.
+            </li>
+            <li>
+              <strong>Método mostrarInformacion():</strong> Imprime los detalles
+              básicos del vehículo.
+            </li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </main>
+  <footer class="chat-input">
+    <input type="text" pInputText placeholder="Escribe tu pregunta aquí..." />
+    <button pButton type="button" label="Enviar"></button>
+  </footer>
+</div>
