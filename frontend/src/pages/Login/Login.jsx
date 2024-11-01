@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useAuth } from "../../hooks/useAuth"; // Hook personalizado de autenticación
 import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button/Button";
+import useAuth from "../../hooks/useAuth";
+import Button from "../../components/Button/Button/Button";
+import "./Login.css";
 
 const Login = () => {
   const { login } = useAuth(); // Función para iniciar sesión

@@ -1,49 +1,26 @@
-import React, { useEffect, useState } from "react";
-import { getExercises } from "../../services/exerciseService";
-import Exercise from "../../components/Exercise/Exercise";
+// src/pages/Dashboard/Dashboard.jsx
 
-const Dashboard = () => {
-  const [exercises, setExercises] = useState([]);
-  const [currentExercise, setCurrentExercise] = useState(null);
-  const [error, setError] = useState("");
+import React from "react";
+import Button from "../../components/Button/Button/Button";
+import "./Dashboard.css";
 
-  useEffect(() => {
-    fetchExercises();
-  }, []);
-
-  const fetchExercises = async () => {
-    try {
-      const res = await getExercises(); // Llama al servicio que obtiene ejercicios
-      setExercises(res.data); // Almacena los ejercicios en el estado
-      setCurrentExercise(res.data[0]); // Comienza con el primer ejercicio
-    } catch (err) {
-      setError("Error al cargar los ejercicios");
-    }
-  };
-
+function Dashboard() {
   const handleNextExercise = () => {
-    const currentIndex = exercises.findIndex(
-      (ex) => ex._id === currentExercise._id
-    );
-    if (currentIndex < exercises.length - 1) {
-      setCurrentExercise(exercises[currentIndex + 1]); // Cambia al siguiente ejercicio
-    } else {
-      setCurrentExercise(null); // No hay más ejercicios
-    }
+    // Lógica para avanzar al siguiente ejercicio
+    console.log("Siguiente ejercicio");
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      {error && <div className="mb-4 text-red-500">{error}</div>}
-      {currentExercise ? (
-        <Exercise exercise={currentExercise} onNext={handleNextExercise} />
-      ) : (
-        <div className="text-center text-gray-700">
-          ¡Felicidades! Has completado todos los ejercicios disponibles.
-        </div>
-      )}
+    <div className="dashboard-container bg-gray-100 min-h-screen p-8">
+      <h1 className="text-3xl font-bold mb-4">Bienvenido al Dashboard</h1>
+      <p className="text-lg mb-6">
+        Aquí podrás ver y gestionar tus ejercicios, progreso y más.
+      </p>
+      <Button onClick={handleNextExercise} className="mt-4">
+        Siguiente Ejercicio
+      </Button>
     </div>
   );
-};
+}
 
 export default Dashboard;

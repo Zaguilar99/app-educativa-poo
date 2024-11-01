@@ -7,12 +7,14 @@
     "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.9.0",
-    "mongoose": "^8.6.3"
+    "mongoose": "^8.7.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "scripts": {
     "start": "node server.js",
-    "build": "echo 'No build step necessary for backend'"
-
+    "dev": "nodemon server.js",
+    "build": "react-scripts"
   },
   "name": "backend",
   "version": "1.0.0",

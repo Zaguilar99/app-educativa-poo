@@ -1,17 +1,46 @@
+// src/App.js
+
 import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Navbar from "./components/Button/Navbar/Navbar";
+import Dashboard from "./pages/Dashboard/Dashboard";
+import Home from "./pages/Home/Home";
+import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import { AuthProvider } from "./context/AuthContext";
+// Importa otros componentes según sea necesario
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header bg-blue-500 text-white min-h-screen flex flex-col items-center justify-center">
-        <h1 className="text-4xl font-bold underline">
-          ¡Hola Mundo, Tailwind CSS está funcionando!
-        </h1>
-        <p className="mt-4 text-lg">
-          Este es un ejemplo de Tailwind CSS en acción.
-        </p>
-      </header>
-    </div>
+    <Router>
+      {/* Navbar visible en todas las páginas */}
+      <Navbar />
+      <Routes>
+        {/* Redirigir la ruta raíz "/" al Dashboard */}
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+
+        {/* Definir la ruta para el Dashboard */}
+        <Route path="/dashboard" element={<Dashboard />} />
+
+        {/* Definir la ruta para Home */}
+        <Route path="/home" element={<Home />} />
+
+        {/* Definir la ruta para Login */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Definir la ruta para Register */}
+        <Route path="/register" element={<Register />} />
+
+        {/* Manejar rutas no encontradas (404) */}
+        <Route path="*" element={<Navigate to="/dashboard" replace />} />
+      </Routes>
+    </Router>
   );
 }
 

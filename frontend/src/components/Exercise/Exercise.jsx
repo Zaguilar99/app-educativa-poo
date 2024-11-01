@@ -1,7 +1,7 @@
 // src/components/Exercise/Exercise.jsx
 import React, { useState } from "react";
 import Editor from "@monaco-editor/react";
-import Button from "../Button/Button";
+import Button from "../Button/Button/Button";
 import { submitSolution } from "../../services/exerciseService";
 
 const Exercise = ({ exercise, onNext }) => {

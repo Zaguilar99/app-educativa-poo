@@ -1,47 +1,45 @@
-import React, { createContext, useState, useEffect } from "react";
-import {
-  login as loginService,
-  register as registerService,
-} from "../services/authService";
+// src/context/AuthContext.jsx
 
+import React, { createContext, useState, useContext, useEffect } from "react";
+
+// Crear el contexto de autenticación
 export const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
+// Hook personalizado para usar el contexto de autenticación
+export function useAuth() {
+  return useContext(AuthContext);
+}
+
+// Proveedor del contexto de autenticación
+export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
+  // Cargar el usuario desde localStorage al inicio
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
-    if (storedUser) setUser(JSON.parse(storedUser));
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
   }, []);
 
-  const login = async (credentials) => {
-    try {
-      const data = await loginService(credentials);
-      setUser(data.user);
-      localStorage.setItem("user", JSON.stringify(data.user));
-      return { success: true };
-    } catch (error) {
-      return { success: false, message: error.response.data.error };
-    }
+  // Función para iniciar sesión
+  const login = (userData) => {
+    setUser(userData);
+    localStorage.setItem("user", JSON.stringify(userData));
   };
 
-  const register = async (userData) => {
-    try {
-      await registerService(userData);
-      return { success: true };
-    } catch (error) {
-      return { success: false, message: error.response.data.error };
-    }
-  };
-
+  // Función para cerrar sesión
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
   };
 
-  return (
-    <AuthContext.Provider value={{ user, login, register, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
-};
+  // Valor proporcionado por el contexto
+  const value = {
+    user,
+    login,
+    logout,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}

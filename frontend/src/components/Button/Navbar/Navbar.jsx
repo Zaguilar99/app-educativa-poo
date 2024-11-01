@@ -1,49 +1,33 @@
+// src/components/Navbar/Navbar.jsx
+
 import React from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../hooks/useAuth";
+import "./Navbar.css";
 
-const Navbar = () => {
-  const { user, logout } = useAuth();
-
+function Navbar() {
   return (
-    <nav className="bg-white shadow">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold text-blue-500">
-          AppEducativaPOO
-        </Link>
+    <nav className="navbar bg-blue-600 text-white p-4">
+      <div className="container mx-auto flex justify-between">
+        <div className="font-bold text-xl">
+          <Link to="/dashboard">AppEducativaPOO</Link>
+        </div>
         <div className="space-x-4">
-          {user ? (
-            <>
-              <Link
-                to="/dashboard"
-                className="text-gray-700 hover:text-blue-500"
-              >
-                Dashboard
-              </Link>
-              <button
-                onClick={logout}
-                className="text-gray-700 hover:text-blue-500"
-              >
-                Cerrar Sesión
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login" className="text-gray-700 hover:text-blue-500">
-                Iniciar Sesión
-              </Link>
-              <Link
-                to="/register"
-                className="text-gray-700 hover:text-blue-500"
-              >
-                Registrarse
-              </Link>
-            </>
-          )}
+          <Link to="/dashboard" className="hover:underline">
+            Dashboard
+          </Link>
+          <Link to="/home" className="hover:underline">
+            Home
+          </Link>
+          <Link to="/login" className="hover:underline">
+            Iniciar Sesión
+          </Link>
+          <Link to="/register" className="hover:underline">
+            Registrarse
+          </Link>
         </div>
       </div>
     </nav>
   );
-};
+}
 
 export default Navbar;
